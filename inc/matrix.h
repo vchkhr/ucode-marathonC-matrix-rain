@@ -1,17 +1,22 @@
-#pragma once
+#ifndef MATRIX_H
+#define MATRIX_H
 
 #include <ncurses.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <time.h>
 
-struct colms {
+typedef struct s_display {
+	int length;
+	int start;
+	int finish;
 	wchar_t *arr;
-	int length, start, finish;
-};
+} t_display;
 
-wchar_t get_random_num();
-void get_term_size(WINDOW *mainwin,int *rows, int *cols);
-int matrix(WINDOW *mainwin);
-void print_massege(WINDOW *mainwin, int cols, int rows);
+int mx_strcmp(const char *, const char *);
+void mx_matrix_rain(WINDOW *, int, char **);
+void mx_print_text(WINDOW *, int, int);
+wchar_t mx_get_random_japanese_unicode();
 
+#endif

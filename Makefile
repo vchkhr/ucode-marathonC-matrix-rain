@@ -14,10 +14,12 @@ install:
 	@clang $(CFLAGS) -o $(NAME) *.c
 
 uninstall: clean
-	@rm -rf $(NAME)
+	@rm -f $(NAME)
 
 clean:
-	@rm -rf *.h
-	@rm -rf *.c
+	@rm -f *.h
+	@rm -f *.c
 	
-reinstall: uninstall clean all
+reinstall:
+	@make uninstall
+	@make

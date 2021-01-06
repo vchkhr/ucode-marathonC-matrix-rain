@@ -1,13 +1,14 @@
 #include "matrix.h"
 
-int main() {
+int main(int argc, char *argv[]) {
 	setlocale(LC_ALL, "ja_JP.UTF-8");
-	WINDOW * mainwin;
 
-	mainwin = initscr();
-	curs_set(0);
+	WINDOW* mainwin = initscr();
 
-	matrix(mainwin);
+	curs_set(false);
+
+	mx_matrix_rain(mainwin, argc, argv);
+	
 	delwin(mainwin);
 
 	endwin();
